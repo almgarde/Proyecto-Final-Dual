@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Gestión del comercio</title>
+<link rel="stylesheet" href="/cards.css">
+<style>
+body {
+	background-image:
+		url('https://media.istockphoto.com/illustrations/summer-background-with-abstract-beach-texture-in-watercolor-style-illustration-id994198288?k=20&m=994198288&s=170667a&w=0&h=ESwHDm1tvzSOBR-OcoXcHYkR1cbO4W3bimXCMxrPN1s=');
+}
+</style>
+</head>
+<body>
+	<!--   Tarjetas-->
+	<div class="title-cards">
+		<h2>GESTIÓN DEL COMERCIO</h2>
+	</div>
+	<div class="container-card" style="margin-top: 50px">
+
+		<div class="card">
+			<figure>
+				<img
+					src="https://www.liderdelemprendimiento.com/wp-content/uploads/2019/10/Qu%C3%A9-son-los-proveedores-y-cu%C3%A1les-son-sus-tipos-2848x3000.png">
+			</figure>
+			<div class="contenido-card">
+				<h3>PROVEEDORES</h3>
+				<form th:action="@{./provider/}" method="GET">
+					<button type="submit" class="btn btn-success">Acceder</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://ccsantamonicarivas.com/wp-content/uploads/2019/10/750A8691.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>PAPELERÍAS</h3>
+				<form th:action="@{./stationery/}" method="GET">
+					<button type="submit" class="btn btn-success">Acceder</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://moderndepot.es/wp-content/uploads/2020/02/productos-servicios-papeleria.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>PRODUCTOS</h3>
+				<form th:action="@{./product/}" method="GET">
+					<button type="submit" class="btn btn-success">Acceder</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://nattivos.com/wp-content/uploads/2017/12/libreria-3.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>CLIENTES</h3>
+				<form th:action="@{./client/}" method="GET">
+					<button type="submit" class="btn btn-success">Acceder</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!--Fin   Tarjetas-->
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Gestión de los proveedores</title>
+<link rel="stylesheet" href="/cards.css">
+</head>
+<body>
+	<!--   Tarjetas-->
+	<div class="title-cards">
+		<h2>GESTIÓN DE LAS PAPELERÍAS</h2>
+	</div>
+	<div class="container-card">
+
+		<div class="card">
+			<figure>
+				<img
+					src="https://www.antara-co.com/wp-content/uploads/2018/03/interior-papeleria-ferrer.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Mostrar todas las papelerías</h3>
+				</br>
+				<form th:action="@{./showAllStationeries}" method="GET">
+					<button type="submit" class="btn btn-success">Mostrar</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://static.anuevayork.com/wp-content/uploads/2015/06/06214039/Papeleria-Michaels-Nueva-York.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Dar de alta una papelería</h3>
+				<form th:action="@{./addStationery}" th:object="${stationeryDto}"
+					method="POST">
+					<div class="form-group">
+						<!-- CIF -->
+						<label for="cifStationery">CIF</label> <input type="text"
+							required="required" class="form-control" id="cifStationery"
+							name="cifStationery" placeholder="Escriba un CIF"></br>
+						</br>
+
+						<!-- Nombre -->
+						<label for="nameStationery">Nombre</label> <input type="text"
+							required="required" class="form-control" id="nameStationery"
+							name="nameStationery" placeholder="Escriba un nombre"></br>
+
+					</div>
+					</br>
+					<button type="submit" class="btn btn-success">Dar de alta</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://muchosnegociosrentables.com/wp-content/uploads/2020/07/como-iniciar-una-papeleria-pequena.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Buscar una papelería</h3>
+				<form th:action="@{./searchStationery}" method="POST">
+					<div class="form-group">
+
+						<!-- DNI -->
+						<label for="nameStationery">Nombre</label> <input type="text"
+							required="required" class="form-control" id="nameStationery"
+							name="nameStationery" placeholder="Escriba un nombre">
+
+					</div>
+					</br>
+					<button type="submit" class="btn btn-success">Buscar</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<!--Fin   Tarjetas-->
+	</br>
+	</br>
+	<div style="margin-left: 47%">
+		<button type="button" class="btn btn-success">
+			<a th:href="@{/home/}" style="font-size: 20px">Inicio</a>
+		</button>
+	</div>
+</body>
+</html>

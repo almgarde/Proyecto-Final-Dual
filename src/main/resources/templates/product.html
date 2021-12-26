@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Gestión de los proveedores</title>
+<link rel="stylesheet" href="/cards.css">
+</head>
+<body>
+	<!--   Tarjetas-->
+	<div class="title-cards">
+		<h2>GESTIÓN DE LOS PRODUCTOS</h2>
+	</div>
+	<div class="container-card">
+
+		<div class="card">
+			<figure>
+				<img
+					src="https://moderndepot.es/wp-content/uploads/2020/02/productos-servicios-papeleria.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Mostrar todos los productos</h3>
+				</br>
+				<form th:action="@{./showAllProducts}" method="GET">
+					<button type="submit" class="btn btn-success">Mostrar</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://i.pinimg.com/originals/c4/94/0a/c4940a017f389fbc9b692da89c6ea182.png">
+			</figure>
+			<div class="contenido-card">
+				<h3>Dar de alta un producto</h3>
+				<form th:action="@{./addProduct}" th:object="${productDto}"
+					method="POST">
+					<div class="form-group">
+						<!-- DNI -->
+						<label for="nameProduct">Nombre</label> <input type="text"
+							required="required" class="form-control" id="nameProduct"
+							name="nameProduct" placeholder="Escriba un nombre"></br>
+						</br>
+
+						<!-- Nombre -->
+						<label for="priceProduct">Precio</label> <input type="text"
+							required="required" class="form-control" id="priceProduct"
+							name="priceProduct" placeholder="Escriba un precio"></br>
+
+					</div>
+					</br>
+					<button type="submit" class="btn btn-success">Dar de alta</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://i.pinimg.com/originals/a3/04/1e/a3041ea059d6bc174c3a828ce7e8d02e.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Buscar un producto</h3>
+				<form th:action="@{./searchProduct}" method="POST">
+					<div class="form-group">
+
+						<!-- DNI -->
+						<label for="nameProduct">Nombre</label> <input type="text"
+							required="required" class="form-control" id="nameProduct"
+							name="nameProduct" placeholder="Escriba un nombre">
+
+					</div>
+					</br>
+					<button type="submit" class="btn btn-success">Buscar</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<!--Fin   Tarjetas-->
+	</br>
+	</br>
+	<div style="margin-left: 47%">
+		<button type="button" class="btn btn-success">
+			<a th:href="@{/home/}" style="font-size: 20px">Inicio</a>
+		</button>
+	</div>
+</body>
+</html>

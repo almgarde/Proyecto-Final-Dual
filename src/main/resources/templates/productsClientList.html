@@ -1,0 +1,39 @@
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Gestión de los clientes</title>
+<link rel="stylesheet" href="/tablePages.css">
+</head>
+<body>
+	<div class="container mt-4">
+		<h1>PRODUCTOS COMPRADOS</h1>
+		<table style="margin: auto; margin-top: 50px" class="styled-table">
+			<thead>
+				<tr>
+					<td>DNI CLIENTE</td>
+					<td>PRODUCTO</td>
+					<td>PRECIO</td>
+				</tr>
+
+			</thead>
+			<tbody>
+				<td th:text="${dniClient}" th:rowspan="${numProducts}"></td>
+				<tr th:each="product:${productsClient}">
+					<td th:text="${product.nameProduct}"></td>
+					<td th:text="${product.priceProduct}"></td>
+				</tr>
+
+			</tbody>
+		</table>
+		</br> </br>
+		<div style="margin-left: 47%">
+			<button type="button" class="btn btn-success">
+				<a th:href="@{/home/}" style="font-size: 20px">Inicio</a>
+			</button>
+		</div>
+	</div>
+
+</body>
+</html>

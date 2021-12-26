@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Gestión de los clientes</title>
+<link rel="stylesheet" href="/tablePages.css">
+</head>
+<body>
+	<div class="container mt-4">
+		<h1>CLIENTES</h1>
+		<table style="margin: auto; margin-top: 50px" class="styled-table">
+			<thead>
+				<tr>
+					<td>DNI</td>
+					<td>NOMBRE</td>
+					<td>APELLIDOS</td>
+					<td style="text-align: center">OPCIONES</td>
+				</tr>
+
+			</thead>
+			<tbody>
+				<tr th:each="client:${clients}">
+
+					<td th:text="${client.dniClient}"></td>
+					<td th:text="${client.nameClient}"></td>
+					<td th:text="${client.surnameClient}"></td>
+					<td>
+						<button type="button" class="btn btn-success">
+							<a th:href="@{./deleteClient/}+${client.dniClient}"
+								class="btn btn-danger">Eliminar</a>
+						</button>
+						<button type="button" class="btn btn-success">
+							<a th:href="@{./productsClient/}+${client.dniClient}"
+								class="btn btn-danger">Mostrar productos</a>
+						</button>
+						<button type="button" class="btn btn-success">
+							<a th:href="@{./stationeriesClient/}+${client.dniClient}"
+								class="btn btn-danger">Mostrar papelerías</a>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</br> </br>
+		<div style="margin-left: 47%">
+			<button type="button" class="btn btn-success">
+				<a th:href="@{/home/}" style="font-size: 20px">Inicio</a>
+			</button>
+		</div>
+	</div>
+
+</body>
+</html>

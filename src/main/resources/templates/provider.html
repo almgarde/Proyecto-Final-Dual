@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Gestión de los proveedores</title>
+<link rel="stylesheet" href="/cards.css">
+</head>
+<body>
+	<!--   Tarjetas-->
+	<div class="title-cards">
+		<h2>GESTIÓN DE LOS PROVEEDORES</h2>
+	</div>
+	<div class="container-card">
+
+		<div class="card">
+			<figure>
+				<img
+					src="https://image.freepik.com/foto-gratis/monigote-comprobando-numero-cajas_1156-221.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Mostrar todos los proveedores</h3>
+				</br>
+				<form th:action="@{./showAllProviders}" method="GET">
+					<button type="submit" class="btn btn-success">Mostrar</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://amazing-group.com/wp-content/uploads/2019/03/proveedores.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Dar de alta un proveedor</h3>
+				<form th:action="@{./addProvider}" th:object="${providerDto}"
+					method="POST">
+					<div class="form-group">
+						<!-- DNI -->
+						<label for="cifProvider">CIF</label> <input type="text"
+							required="required" class="form-control" id="cifProvider"
+							name="cifProvider" placeholder="Escriba un CIF"></br>
+						</br>
+
+						<!-- Nombre -->
+						<label for="nameProvider">Nombre</label> <input type="text"
+							required="required" class="form-control" id="nameProvider"
+							name="nameProvider" placeholder="Escriba un nombre"></br>
+
+					</div>
+					</br>
+					<button type="submit" class="btn btn-success">Dar de alta</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://www.comologia.com/wp-content/uploads/2018/03/mejores-proveedores-mayoristas-distribuidores-confiables.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Buscar un proveedor</h3>
+				<form th:action="@{./searchProvider}" method="POST">
+					<div class="form-group">
+
+						<!-- DNI -->
+						<label for="cifProvider">CIF</label> <input type="text"
+							required="required" class="form-control" id="cifProvider"
+							name="cifProvider" placeholder="Escriba un CIF">
+
+					</div>
+					</br>
+					<button type="submit" class="btn btn-success">Buscar</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+	<!--Fin   Tarjetas-->
+	</br>
+	</br>
+	<div style="margin-left: 47%">
+		<button type="button" class="btn btn-success">
+			<a th:href="@{/home/}" style="font-size: 20px">Inicio</a>
+		</button>
+	</div>
+</body>
+</html>

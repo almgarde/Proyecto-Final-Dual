@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Gestión de los clientes</title>
+<link rel="stylesheet" href="/cards.css">
+</head>
+<body>
+	<!--   Tarjetas-->
+	<div class="title-cards">
+		<h2>GESTIÓN DE LOS CLIENTES</h2>
+	</div>
+	<div class="container-card">
+
+		<div class="card">
+			<figure>
+				<img
+					src="https://imagenes.elpais.com/resizer/Z8n9POco0gbhlK3nfiVSBK3wgL4=/980x735/arc-anglerfish-eu-central-1-prod-prisa.s3.amazonaws.com/public/EW6JUN4LFC62H2AQSGNGAXQ6JA.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Mostrar todos los clientes</h3>
+				</br>
+				<form th:action="@{./showAllClients}" method="GET">
+					<button type="submit" class="btn btn-success">Mostrar</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://www.takub.com/wp-content/uploads/2018/08/Captar.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Dar de alta un cliente</h3>
+				<form th:action="@{./addClient}" th:object="${clientDto}"
+					method="POST">
+					<div class="form-group">
+						<!-- DNI -->
+						<label for="dniClient">DNI</label> <input type="text"
+							required="required" class="form-control" id="dniClient"
+							name="dniClient" placeholder="Escriba un DNI"></br>
+						</br>
+
+						<!-- Nombre -->
+						<label for="nameClient">Nombre</label> <input type="text"
+							required="required" class="form-control" id="nameClient"
+							name="nameClient" placeholder="Escriba un nombre"></br>
+						</br>
+
+						<!-- Nombre -->
+						<label for="surnameClient">Apellidos</label> <input type="text"
+							required="required" class="form-control" id="surnameClient"
+							name="surnameClient" placeholder="Escriba los apellidos"></br>
+
+					</div>
+					</br>
+					<button type="submit" class="btn btn-success">Dar de alta</button>
+				</form>
+			</div>
+		</div>
+		<div class="card">
+			<figure>
+				<img
+					src="https://www.javiramosmarketing.com/wp-content/uploads/2015/06/cliente-ideal.jpg">
+			</figure>
+			<div class="contenido-card">
+				<h3>Buscar un cliente</h3>
+				<form th:action="@{./searchClient}" method="POST">
+					<div class="form-group">
+
+						<!-- DNI -->
+						<label for="dniClient">DNI</label> <input type="text"
+							required="required" class="form-control" id="dniClient"
+							name="dniClient" placeholder="Escriba un DNI">
+
+					</div>
+					</br>
+					<button type="submit" class="btn btn-success">Buscar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	</br>
+	</br>
+	<div style="margin-left: 47%">
+		<button type="button" class="btn btn-success">
+			<a th:href="@{/home/}" style="font-size: 20px">Inicio</a>
+		</button>
+	</div>
+	<!--Fin   Tarjetas-->
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Gestión de las papelerías</title>
+<link rel="stylesheet" href="/tablePages.css">
+</head>
+<body>
+	<div class="container mt-4">
+		<h1>PAPELERÍAS</h1>
+		<table style="margin: auto; margin-top: 50px" class="styled-table">
+			<thead>
+				<tr>
+					<td>CIF</td>
+					<td>NOMBRE</td>
+					<td style="text-align: center">OPCIONES</td>
+				</tr>
+
+			</thead>
+			<tbody>
+				<tr th:each="stationery:${stationeries}">
+
+					<td th:text="${stationery.cifStationery}"></td>
+					<td th:text="${stationery.nameStationery}"></td>
+					<td><button type="button" class="btn btn-success">
+							<a th:href="@{./deleteStationery/}+${stationery.nameStationery}"
+								class="btn btn-danger">Eliminar</a>
+						</button></td>
+				</tr>
+			</tbody>
+		</table>
+		</br> </br>
+		<div style="margin-left: 47%">
+			<button type="button" class="btn btn-success">
+				<a th:href="@{/home/}" style="font-size: 20px">Inicio</a>
+			</button>
+		</div>
+	</div>
+
+</body>
+</html>
+>

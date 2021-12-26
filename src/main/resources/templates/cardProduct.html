@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>Gestión de los productos</title>
+<link rel="stylesheet" href="estilos.css">
+<style>
+@import
+	url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+/*Cards*/
+.container-card {
+	width: 100%;
+	display: flex;
+	max-width: 700px;
+	margin: auto;
+}
+
+.title-cards {
+	width: 100%;
+	max-width: 1080px;
+	margin: auto;
+	padding: 20px;
+	margin-top: 20px;
+	text-align: center;
+	color: #7a7a7a;
+}
+
+.card {
+	width: 100%;
+	margin: 20px;
+	border-radius: 6px;
+	overflow: hidden;
+	background: #fff;
+	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+	transition: all 400ms ease-out;
+	cursor: default;
+}
+
+.card:hover {
+	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+	transform: translateY(-3%);
+}
+
+.card img {
+	width: 100%;
+	height: 300px;
+}
+
+.card .contenido-card {
+	padding: 15px;
+	text-align: center;
+}
+
+.card .contenido-card h3 {
+	margin-bottom: 15px;
+	color: #7a7a7a;
+}
+
+.card .contenido-card p {
+	line-height: 1.8;
+	color: #6a6a6a;
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.card .contenido-card a {
+	display: inline-block;
+	padding: 10px;
+	margin-top: 10px;
+	text-decoration: none;
+	color: #2fb4cc;
+	border: 1px solid #2fb4cc;
+	border-radius: 4px;
+	transition: all 400ms ease;
+	margin-bottom: 5px;
+}
+
+.card .contenido-card a:hover {
+	background: #2fb4cc;
+	color: #fff;
+}
+
+@media only screen and (min-width:320px) and (max-width:768px) {
+	.container-card {
+		flex-wrap: wrap;
+	}
+	.card {
+		margin: 15px;
+	}
+}
+/*Fin-Cards*/
+.styled-table {
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 0.9em;
+	font-family: sans-serif;
+	min-width: 400px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+	background-color: #009879;
+	color: #ffffff;
+	text-align: left;
+}
+
+.styled-table th, .styled-table td {
+	padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+	border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+	background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+	border-bottom: 2px solid #009879;
+}
+</style>
+</head>
+<body>
+	<!--   Tarjetas-->
+	<div class="title-cards">
+		<h2>GESTIÓN DE LOS PRODUCTOS</h2>
+	</div>
+	<div class="container-card">
+
+		<div class="card">
+			<figure>
+				<img
+					src="https://www.panafargo.com/wp-content/uploads/2020/07/Lista-para-sutir-una-papeleria.jpg">
+			</figure>
+			<div class="container mt-4">
+				<table style="margin: auto; margin-top: 20px; margin-bottom: 20px;"
+					class="styled-table">
+					<thead>
+						<tr>
+							<td>NOMBRE</td>
+							<td>PRECIO</td>
+							<td style="text-align: center">OPCIONES</td>
+						</tr>
+
+					</thead>
+					<tbody>
+						<tr th:each="product:${productData}">
+
+							<td th:text="${product.nameProduct}"></td>
+							<td th:text="${product.priceProduct}"></td>
+							<td><button type="button" class="btn btn-success">
+									<a th:href="@{./deleteProduct/}+${product.nameProduct}"
+										class="btn btn-danger">Eliminar</a>
+								</button></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	</br>
+	</br>
+	<div style="margin-left: 47%">
+		<button type="button" class="btn btn-success">
+			<a th:href="@{/home/}" style="font-size: 20px">Inicio</a>
+		</button>
+	</div>
+</body>
+</html>
